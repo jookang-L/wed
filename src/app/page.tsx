@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Hero from "@/components/Hero";
+import InvitationMessage from "@/components/InvitationMessage";
 import CalendarSection from "@/components/CalendarSection";
 import MapSection from "@/components/MapSection";
 import VideoSection from "@/components/VideoSection";
@@ -27,6 +28,7 @@ export default function Home() {
       <div className={`flex flex-col w-full ${showIntro ? 'invisible' : 'visible'}`}>
         <AudioPlayer autoPlay={startMusic} />
         <Hero />
+        <InvitationMessage />
         <CalendarSection />
         <MapSection />
         <VideoSection />

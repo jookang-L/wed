@@ -35,10 +35,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@400;700&display=swap" 
           rel="stylesheet" 
         />
-        {/* 네이버 지도 스크립트 */}
+        {/* 네이버 지도 스크립트 (신규 API) */}
         <Script
           strategy="beforeInteractive"
-          src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qhsn30jt44`}
+          src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=qhsn30jt44`}
         />
       </head>
       <body>
