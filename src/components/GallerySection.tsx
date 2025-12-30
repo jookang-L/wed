@@ -27,8 +27,7 @@ export default function GallerySection() {
 
   return (
     <section className="bg-white px-4">
-      <p className="text-xs tracking-[0.3em] text-primary mb-2">GALLERY</p>
-      <h2 className="mb-10">소중한 순간들</h2>
+      <h2 className="mb-10 italic">We, Within the Frame</h2>
 
       <div className="grid grid-cols-3 gap-1 w-full">
         {IMAGES.map((src, i) => (

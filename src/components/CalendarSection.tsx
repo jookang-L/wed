@@ -15,11 +15,14 @@ export default function CalendarSection() {
     setDDay(Math.ceil(diff / (1000 * 60 * 60 * 24)));
   }, []);
 
-  // 5월 3일(일)부터 23일(토)까지 - 3주
+  // 2026년 5월 전체 달력 (1일=금요일, 달력은 일요일부터 시작)
   const calendarDays = [
-    [3, 4, 5, 6, 7, 8, 9],
-    [10, 11, 12, 13, 14, 15, 16],
-    [17, 18, 19, 20, 21, 22, 23],
+    [null, null, null, null, null, 1, 2],       // 1주차: 1일(금), 2일(토)
+    [3, 4, 5, 6, 7, 8, 9],                      // 2주차: 3일(일)부터
+    [10, 11, 12, 13, 14, 15, 16],               // 3주차: 16일(토) 결혼식
+    [17, 18, 19, 20, 21, 22, 23],               // 4주차
+    [24, 25, 26, 27, 28, 29, 30],               // 5주차
+    [31, null, null, null, null, null, null],   // 6주차: 31일(일)
   ];
 
   // 슬롯머신 롤링 효과
@@ -79,10 +82,14 @@ export default function CalendarSection() {
             >
               {week.map((day, dayIdx) => (
                 <div 
-                  key={day} 
+                  key={`${weekIdx}-${dayIdx}`}
                   className={`relative flex items-center justify-center py-4 ${dayIdx === 0 ? 'text-red-400' : 'text-gray-600'}`}
                 >
-                  {day === 16 ? (
+                  {day === null ? (
+                    // 빈칸
+                    <span className="text-gray-300"></span>
+                  ) : day === 16 ? (
+                    // 결혼식 날 (하트)
                     <div className="relative flex items-center justify-center">
                       <svg 
                         width="34" 
@@ -98,6 +105,7 @@ export default function CalendarSection() {
                       <span className="relative z-10 text-white font-medium text-[12px]">{day}</span>
                     </div>
                   ) : (
+                    // 일반 날짜
                     day
                   )}
                 </div>
