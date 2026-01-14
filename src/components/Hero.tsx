@@ -8,7 +8,7 @@ export default function Hero() {
       {/* 배경 이미지 */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/wed1.jpg')" }}
+        style={{ backgroundImage: "url('/main.webp')" }}
       />
       <div className="absolute inset-0 bg-black/25" />
 

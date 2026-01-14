@@ -3,11 +3,27 @@
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-const IMAGES = [
-  "/wed1.jpg", "/web5.JPG", "/web6.JPG",
-  "/web7.JPG", "/web8.JPG", "/web9.JPG",
-  "/web10.JPG", "/poster.png", "/wed2.png"
-];
+// wed1.webp ~ wed29.webp까지 29장의 이미지 (WebP 최적화)
+const IMAGES = Array.from({ length: 29 }, (_, i) => `/wed${i + 1}.webp`);
+
+// 가변 그리드 레이아웃 패턴 (각 줄마다 다른 칸 수)
+// 자유롭고 감성적인 비대칭 배치
+const GRID_LAYOUT = [
+  1,  // 1줄: 1장 - 시작을 강조
+  2,  // 2줄: 2장
+  3,  // 3줄: 3장
+  2,  // 4줄: 2장
+  1,  // 5줄: 1장 - 포인트
+  4,  // 6줄: 4장
+  2,  // 7줄: 2장
+  3,  // 8줄: 3장
+  1,  // 9줄: 1장 - 포인트
+  3,  // 10줄: 3장
+  2,  // 11줄: 2장
+  1,  // 12줄: 1장 - 포인트
+  4,  // 13줄: 4장
+  2   // 14줄: 2장 - 마무리
+]; // 총 29장
 
 export default function GallerySection() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
@@ -25,18 +41,41 @@ export default function GallerySection() {
     if (selectedIdx !== null) setSelectedIdx((selectedIdx + 1) % IMAGES.length);
   };
 
+  // 이미지를 그리드 레이아웃에 맞게 분할
+  let imageIndex = 0;
+  const rows = GRID_LAYOUT.map(colCount => {
+    const rowImages = IMAGES.slice(imageIndex, imageIndex + colCount);
+    imageIndex += colCount;
+    return { colCount, images: rowImages };
+  });
+
   return (
     <section className="bg-white px-4">
       <h2 className="mb-10 italic">We, Within the Frame</h2>
 
-      <div className="grid grid-cols-3 gap-1 w-full">
-        {IMAGES.map((src, i) => (
+      <div className="flex flex-col gap-1 w-full">
+        {rows.map((row, rowIdx) => (
           <div 
-            key={i} 
-            className="aspect-square bg-gray-100 cursor-pointer overflow-hidden"
-            onClick={() => openLightbox(i)}
+            key={rowIdx} 
+            className={`grid gap-1`}
+            style={{ gridTemplateColumns: `repeat(${row.colCount}, 1fr)` }}
           >
-            <img src={src} alt={`gallery-${i}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+            {row.images.map((src, colIdx) => {
+              const globalIdx = GRID_LAYOUT.slice(0, rowIdx).reduce((sum, count) => sum + count, 0) + colIdx;
+              return (
+                <div 
+                  key={globalIdx} 
+                  className="aspect-square bg-gray-100 cursor-pointer overflow-hidden"
+                  onClick={() => openLightbox(globalIdx)}
+                >
+                  <img 
+                    src={src} 
+                    alt={`gallery-${globalIdx + 1}`} 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" 
+                  />
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
