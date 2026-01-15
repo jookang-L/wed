@@ -74,7 +74,7 @@ export default function AccountSection() {
           </button>
           {openBride && (
             <div className="px-6 bg-white animate-in slide-in-from-top-2 duration-300">
-              <AccountItem owner="김은지" bank="농협" number="312-6795-0000-00" />
+              <AccountItem owner="김은지" bank="농협" number="302-1946-9250-01" />
             </div>
           )}
         </div>
@@ -82,4 +82,3 @@ export default function AccountSection() {
     </section>
   );
 }
-
