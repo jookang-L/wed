@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "이주강 ❤️ 김은지 결혼식 초대장",
     description: "2026.05.16 14:00 비렌티",
-    images: ["/wed1.jpg"],
+    images: ["/wed1.webp"],
     type: "website",
   },
 };
