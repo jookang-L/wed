@@ -58,7 +58,8 @@ export default function AccountSection() {
           </button>
           {openGroom && (
             <div className="px-6 bg-white animate-in slide-in-from-top-2 duration-300">
-              <AccountItem owner="이주강" bank="농협" number="312-6795-0233-31" />
+              <AccountItem owner="이주강" bank="농협" number="3126795023331" />
+              <AccountItem owner="이재순" bank="우리" number="1002830300321" />
             </div>
           )}
         </div>
@@ -74,7 +75,8 @@ export default function AccountSection() {
           </button>
           {openBride && (
             <div className="px-6 bg-white animate-in slide-in-from-top-2 duration-300">
-              <AccountItem owner="김은지" bank="농협" number="302-1946-9250-01" />
+              <AccountItem owner="김은지" bank="농협" number="3021946925001" />
+              <AccountItem owner="김정태" bank="신한" number="75302050953" />
             </div>
           )}
         </div>
