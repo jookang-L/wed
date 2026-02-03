@@ -77,12 +77,13 @@ export default function MapSection() {
       
       <div className="mt-12 text-left w-full space-y-6 text-sm font-light text-gray-600">
         <div>
-          <p className="font-normal text-primary mb-1 font-korean">지하철</p>
-          <p className="leading-relaxed text-xs font-korean">두정역 1번 출구에서 셔틀버스 운행 (15분 간격)</p>
+          <p className="font-normal text-primary mb-1 font-korean">셔틀버스</p>
+          <p className="leading-relaxed text-xs font-korean">두정역 1번 출구에서 승차</p>
+          <p className="leading-relaxed text-xs font-korean">천안고속버스터미널 올리브영 앞에서 승차</p>
         </div>
         <div>
-          <p className="font-normal text-primary mb-1 font-korean">버스</p>
-          <p className="leading-relaxed text-xs font-korean">비렌티 웨딩홀 앞 정류장 하차 (11번, 100번)</p>
+          <p className="font-normal text-primary mb-1 font-korean">기차</p>
+          <p className="leading-relaxed text-xs font-korean">천안아산역에서 차량 20분</p>
         </div>
       </div>
     </section>
