@@ -132,3 +132,22 @@ h2 {
     padding-bottom: max(0px, env(safe-area-inset-bottom));
   }
 }
+
+/* ========================================
+   확대 모드 (시력이 불편한 분들을 위한)
+   ======================================== */
+.mobile-container.zoom-mode {
+  zoom: 1.4;
+  -webkit-text-size-adjust: 140%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

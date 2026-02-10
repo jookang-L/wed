@@ -11,6 +11,7 @@ import GuestbookSection from "@/components/GuestbookSection";
 import AccountSection from "@/components/AccountSection";
 import AudioPlayer from "@/components/AudioPlayer";
 import IntroPage from "@/components/IntroPage";
+import ZoomToggle from "@/components/ZoomToggle";
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -27,6 +28,7 @@ export default function Home() {
       
       <div className={`flex flex-col w-full ${showIntro ? 'invisible' : 'visible'}`}>
         <AudioPlayer autoPlay={startMusic} />
+        {!showIntro && <ZoomToggle />}
         <Hero />
         <InvitationMessage />
         <CalendarSection />
