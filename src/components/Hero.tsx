@@ -31,27 +31,27 @@ export default function Hero() {
       </div>
 
       {/* 메인 타이틀 */}
-      <div className="absolute inset-x-0 bottom-24 z-20">
-        {/* ✅ 가운데 정렬 + 폰트 크게 */}
-        <div className="mx-auto w-full px-2 flex justify-center">
+      <div className="absolute inset-x-0 bottom-20 z-20">
+        {/* ✅ 여백 최소화 + 폰트 최대화 */}
+        <div className="mx-auto w-full px-0 flex justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30, rotate: 0 }}
-            animate={{ opacity: 1, y: 0, rotate: -5 }}
+            animate={{ opacity: 1, y: 0, rotate: -4 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
             style={{
               fontFamily: "var(--font-script), 'Alex Brush', cursive",
-              fontSize: "clamp(52px, 16vw, 95px)",
+              fontSize: "clamp(48px, 15vw, 110px)",
               color: "#facc15",
               textShadow:
                 "2px 2px 8px rgba(0,0,0,0.6), 4px 4px 12px rgba(0,0,0,0.4)",
               fontWeight: 400,
-              lineHeight: 0.9,
+              lineHeight: 0.85,
               textAlign: "center",
               transformOrigin: "center center",
             }}
           >
             <div>Welcome</div>
-            <div style={{ fontSize: "0.85em" }}>to our Wedding</div>
+            <div style={{ fontSize: "0.8em", whiteSpace: "nowrap" }}>to our Wedding</div>
           </motion.div>
         </div>
       </div>
