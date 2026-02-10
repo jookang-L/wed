@@ -40,7 +40,7 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: "easeOut" }}
             style={{
               fontFamily: "var(--font-script), 'Alex Brush', cursive",
-              fontSize: "clamp(48px, 15vw, 110px)",
+              fontSize: "clamp(67px, 21vw, 154px)",
               color: "#facc15",
               textShadow:
                 "2px 2px 8px rgba(0,0,0,0.6), 4px 4px 12px rgba(0,0,0,0.4)",
