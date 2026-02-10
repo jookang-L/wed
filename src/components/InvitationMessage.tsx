@@ -98,19 +98,6 @@ export default function InvitationMessage() {
         </p>
       </motion.div>
 
-      {/* 하단 펀치 구멍 - 커버에서 잘라낸 효과 */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-7 overflow-hidden">
-        {[...Array(11)].map((_, i) => (
-          <div 
-            key={i}
-            className="w-3 h-3 rounded-full translate-y-1/2"
-            style={{ 
-              backgroundColor: '#F7F7F5',
-              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.15), inset 0 -1px 2px rgba(255,255,255,0.5)'
-            }}
-          />
-        ))}
-      </div>
     </section>
   );
 }

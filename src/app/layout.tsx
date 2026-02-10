@@ -1,6 +1,23 @@
 import type { Metadata, Viewport } from "next";
+import { Gowun_Batang, Alex_Brush } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+
+// ✅ 본문용 폰트: Gowun Batang (고운바탕)
+const gowunBatang = Gowun_Batang({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-body",
+});
+
+// ✅ 영문 필기체: Alex Brush
+const alexBrush = Alex_Brush({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-script",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -46,27 +63,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html
+      lang="ko"
+      className={`${gowunBatang.variable} ${alexBrush.variable}`}
+    >
       <head>
-        {/* 구글 폰트 */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-
         {/* 네이버 지도 스크립트 (신규 API) */}
         <Script
           strategy="beforeInteractive"
           src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=qhsn30jt44"
         />
       </head>
-      <body>
+      <body className={gowunBatang.className}>
         <main className="mobile-container">{children}</main>
       </body>
     </html>

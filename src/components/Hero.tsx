@@ -40,12 +40,12 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="inline-block -translate-x-2 sm:-translate-x-4"
             style={{
-              fontFamily: "'Alex Brush', cursive",
+              fontFamily: "var(--font-script), 'Alex Brush', cursive",
 
               // ✅ 모바일에서 더 크게: min을 올리고 vw도 소폭 증가
               // - 모바일: 더 시원하게 커짐
               // - 컨테이너 폭 제한 + translate로 잘림 방지
-              fontSize: "clamp(38px, 15vw, 74px)",
+              fontSize: "clamp(48px, 18vw, 90px)",
 
               color: "#facc15",
               textShadow:

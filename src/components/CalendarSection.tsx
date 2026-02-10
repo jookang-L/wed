@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 export default function CalendarSection() {
   const [dDay, setDDay] = useState<number | null>(null);
-  const [showSlot, setShowSlot] = useState(false);
 
   useEffect(() => {
     const target = new Date("2026-05-16T00:00:00");
@@ -25,24 +23,6 @@ export default function CalendarSection() {
     [31, null, null, null, null, null, null],   // 6주차: 31일(일)
   ];
 
-  // 슬롯머신 롤링 효과
-  const SlotNumber = ({ value, delay }: { value: string; delay: number }) => (
-    <div className="overflow-hidden h-[40px] relative">
-      <motion.div
-        initial={{ y: -100 }}
-        animate={showSlot ? { y: 0 } : { y: -100 }}
-        transition={{ 
-          duration: 0.8, 
-          delay: delay,
-          ease: [0.25, 0.46, 0.45, 0.94]
-        }}
-        className="text-3xl font-korean font-light text-gray-700"
-      >
-        {value}
-      </motion.div>
-    </div>
-  );
-
   return (
     <section 
       className="relative px-4 py-12"
@@ -51,11 +31,11 @@ export default function CalendarSection() {
         boxShadow: 'inset 0 1px 0 rgba(0,0,0,0.05), 0 -1px 3px rgba(0,0,0,0.03)'
       }}
     >
-      {/* 월/년 헤더 */}
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-korean font-light tracking-[0.3em] text-gray-700">
-          MAY
-        </h2>
+      {/* 날짜/시간 헤더 */}
+      <div className="text-center mb-6">
+        <p className="text-sm font-korean text-gray-500 mb-1">
+          2026. <span className="text-3xl font-light text-gray-700 tracking-tight">5.16</span> SAT. PM 2:00
+        </p>
       </div>
 
       {/* 달력 그리드 */}
@@ -83,7 +63,7 @@ export default function CalendarSection() {
               {week.map((day, dayIdx) => (
                 <div 
                   key={`${weekIdx}-${dayIdx}`}
-                  className={`relative flex items-center justify-center py-4 ${dayIdx === 0 ? 'text-red-400' : 'text-gray-600'}`}
+                  className={`relative flex items-center justify-center py-2 ${dayIdx === 0 ? 'text-red-400' : 'text-gray-600'}`}
                 >
                   {day === null ? (
                     // 빈칸
@@ -99,7 +79,7 @@ export default function CalendarSection() {
                       >
                         <path 
                           d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                          fill="#E53E3E"
+                          fill="#7A1E2C"
                         />
                       </svg>
                       <span className="relative z-10 text-white font-medium text-[12px]">{day}</span>
@@ -115,55 +95,11 @@ export default function CalendarSection() {
         </div>
       </div>
 
-      {/* 손그림 테두리 박스 - 날짜 + 시간 + 장소 */}
-      <motion.div 
-        className="mt-10 relative inline-block px-8 py-5"
-        onViewportEnter={() => setShowSlot(true)}
-        viewport={{ once: true }}
-      >
-        {/* 손그림 테두리 SVG */}
-        <svg 
-          className="absolute inset-0 w-full h-full" 
-          viewBox="0 0 200 100" 
-          preserveAspectRatio="none"
-          fill="none"
-        >
-          <path 
-            d="M4 8 Q1 3 10 4 L190 5 Q198 3 197 12 L195 88 Q198 96 188 95 L12 94 Q3 97 4 86 Z"
-            stroke="#555"
-            strokeWidth="1"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        <div className="relative z-10 flex flex-col items-center gap-2">
-          {/* 날짜 슬롯머신 */}
-          <div className="flex items-center gap-1">
-            <SlotNumber value="2026" delay={0} />
-            <span className="text-2xl font-korean text-gray-400 mx-1">.</span>
-            <SlotNumber value="05" delay={0.2} />
-            <span className="text-2xl font-korean text-gray-400 mx-1">.</span>
-            <SlotNumber value="16" delay={0.4} />
-          </div>
-
-          {/* 시간 + 장소 */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={showSlot ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ delay: 1.0, duration: 0.5 }}
-            className="text-sm font-korean text-gray-500"
-          >
-            토요일 오후 2시 · 비렌티
-          </motion.p>
-        </div>
-      </motion.div>
 
       {/* D-day */}
       <div className="mt-10 text-center">
         <p className="text-sm leading-relaxed font-korean font-light text-gray-500">
-          주강 <span className="text-red-400 mx-1">❤️</span> 은지의 결혼식이<br />
+          주강 <span style={{ color: '#7A1E2C' }} className="mx-1">❤️</span> 은지의 결혼식이<br />
           <span className="text-lg font-normal text-gray-700 mt-1 block font-korean">
             {dDay !== null ? (
               dDay > 0 ? `${dDay}일 남았습니다` : dDay === 0 ? "오늘입니다!" : `${Math.abs(dDay)}일 지났습니다`

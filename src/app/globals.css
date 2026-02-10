@@ -2,23 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 마포꽃섬 폰트 */
+/* ========================================
+   폰트 정의 (MaruBuri - 제목용)
+   ======================================== */
 @font-face {
-  font-family: 'MapoFlowerIsland';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
-  font-weight: normal;
+  font-family: 'MaruBuri';
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: 'MaruBuri';
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================================
+   CSS 변수 정의
+   ======================================== */
 :root {
   --background: #FDFCFB;
   --foreground: #2D2A26;
   --primary: #4A5D4E;
   --accent: #D4C3B3;
   --max-width: 400px;
+  
+  /* 폰트 변수 (Tailwind CSS 변수와 연동) */
+  --font-title: 'MaruBuri', serif;
 }
 
-/* 기본 리셋 및 모바일 최적화 */
+/* ========================================
+   기본 리셋 및 모바일 최적화
+   ======================================== */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -31,7 +50,6 @@ html {
 body {
   background-color: #f0f0f0;
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -57,15 +75,6 @@ button {
 p, h1, h2, h3, h4, h5, h6, span, div {
   word-break: keep-all;
   overflow-wrap: break-word;
-}
-
-.font-anniversary {
-  font-family: 'Alex Brush', cursive !important;
-  font-weight: 400;
-}
-
-.font-myeongjo {
-  font-family: 'Nanum Myeongjo', serif;
 }
 
 @keyframes drawCircle {
