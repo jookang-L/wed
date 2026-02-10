@@ -32,36 +32,26 @@ export default function Hero() {
 
       {/* 메인 타이틀 */}
       <div className="absolute inset-x-0 bottom-28 z-20">
-        {/* ✅ 모바일 컨테이너(400px) 안에서 좌우 여백 확보 + 잘림 방지 */}
-        <div className="mx-auto w-full max-w-[360px] px-5 overflow-visible">
+        {/* ✅ 가운데 정렬로 변경하여 잘림 방지 */}
+        <div className="mx-auto w-full px-4 flex justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30, rotate: 0 }}
-            animate={{ opacity: 1, y: 0, rotate: -8 }}
+            animate={{ opacity: 1, y: 0, rotate: -6 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="inline-block -translate-x-2 sm:-translate-x-4"
             style={{
               fontFamily: "var(--font-script), 'Alex Brush', cursive",
-
-              // ✅ 모바일에서 더 크게: min을 올리고 vw도 소폭 증가
-              // - 모바일: 더 시원하게 커짐
-              // - 컨테이너 폭 제한 + translate로 잘림 방지
-              fontSize: "clamp(48px, 18vw, 90px)",
-
+              fontSize: "clamp(42px, 14vw, 80px)",
               color: "#facc15",
               textShadow:
                 "2px 2px 8px rgba(0,0,0,0.6), 4px 4px 12px rgba(0,0,0,0.4)",
               fontWeight: 400,
               lineHeight: 0.95,
-              textAlign: "left",
-
-              // ✅ 회전 기준 고정(튀어나옴 완화)
-              transformOrigin: "left center",
+              textAlign: "center",
+              transformOrigin: "center center",
             }}
           >
             <div>Welcome</div>
-
-            {/* ✅ 무조건 한 줄 */}
-            <div style={{ whiteSpace: "nowrap" }}>to our Wedding</div>
+            <div>to our Wedding</div>
           </motion.div>
         </div>
       </div>

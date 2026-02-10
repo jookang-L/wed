@@ -30,7 +30,7 @@ export default function MapSection() {
   const openTmap = () => {
     window.open(
       `tmap://search?name=${encodeURIComponent(
-        placeName
+        "비렌티"
       )}&lon=${longitude}&lat=${latitude}`
     );
   };
@@ -39,7 +39,7 @@ export default function MapSection() {
   const openKakaoNavi = () => {
     window.open(
       `kakaonavi://navigate?latitude=${latitude}&longitude=${longitude}&name=${encodeURIComponent(
-        placeName
+        "비렌티"
       )}`
     );
   };
